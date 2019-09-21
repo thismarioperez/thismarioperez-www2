@@ -1,0 +1,31 @@
+// Round columns width to a number with 2 decimal places.
+// This prevents the layout from breaking in IE.
+//
+// @param {int} $i Current amount of columns
+// @param {int} $columns Total columns in grid
+// @return {string} The stringified width as a percentage rounded to 2 decimal places
+// @see https://medium.com/codyhouse/create-your-design-system-part-2-grid-layout-aa961d59b8d6
+@function round-col-width($i, $columns) {
+    $width: percentage(floor(100 * $i * 100 / $columns) / 10000);
+    @return $width;
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+//
+//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm"
+@function breakpoint-infix($name) {
+    @return if(breakpoint-min($name, $breakpoints) ==null, '', '-#{$name}');
+}

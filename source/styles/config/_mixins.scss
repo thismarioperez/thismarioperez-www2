@@ -1,0 +1,58 @@
+// A mixin targeting a specific device width and larger.
+// These are the available targets: 'xs', sm', 'md', 'lg', 'xl'
+// Skips @media declaration of smallest breakpoint.
+//
+// @param {string} $media The target media
+@mixin respond-from($media) {
+    $min: breakpoint-min($media);
+    @if $min {
+        @media (min-width: #{$min}) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+// Generates modifier classes for a grid of columns, prefixed by size.
+// The result will be --[breakpoint]-[col] E.g. .col--xs-6
+//
+// @param {string} $breakpoint The name of the breakpoint target (e.g. xs, sm, md, lg, xl, etc.)
+// @param {int} $columns Amount of columns
+// @see https://benjaminhorn.io/code/simple-sass-mixins-for-generating-grids-similar-to-bootstrap/
+@mixin col-generator($breakpoint, $columns) {
+    @for $i from 1 through $columns {
+        $infix: breakpoint-infix($breakpoint);
+
+        &-#{$infix}-#{$i} {
+            $width: round-col-width($i, $columns);
+            flex: 1 0 $width;
+            max-width: $width;
+        }
+    }
+}
+
+// Generates modifier classes for order switching of grid columns
+// The result will be --order-[breakpoint]-[index] E.g. .col--md-order-3
+//
+// @param {string} $bp The name of the breakpoint target (e.g. xs, sm, md, lg, xl, etc.)
+// @param {int} $columns Amount of columns
+@mixin order-generator($breakpoint, $columns) {
+    @for $i from 1 through $columns {
+        $infix: breakpoint-infix($breakpoint);
+
+        @if $i==1 {
+            &--order#{$infix}-first {
+                order: -1;
+            }
+
+            &--order#{$infix}-last {
+                order: $grid-columns + 1;
+            }
+        }
+
+        &--order#{$infix}-#{$i} {
+            order: $i;
+        }
+    }
+}

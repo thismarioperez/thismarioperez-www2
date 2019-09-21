@@ -1,0 +1,108 @@
+/******************************************************************************
+ * Grid
+*******************************************************************************/
+.container {
+    width: 100%;
+    padding: 0 ($grid-gutter / 2);
+    margin: 0 auto;
+
+    &--fluid {
+        padding: 0;
+    }
+}
+
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 0 0 ($grid-gutter * -1);
+
+    // Modifiers
+    &--no-gutters {
+        margin: 0;
+    }
+
+    &--no-gutters > .col {
+        padding: 0;
+    }
+
+    &--align-items-start {
+        align-items: flex-start;
+    }
+
+    &--align-items-center {
+        align-items: center;
+    }
+
+    &--align-items-end {
+        align-items: flex-end;
+    }
+
+    &--align-items-stretch {
+        align-items: stretch;
+    }
+
+    &--justify-content-start {
+        justify-content: flex-start;
+    }
+
+    &--justify-content-center {
+        justify-content: center;
+    }
+
+    &--justify-content-end {
+        justify-content: flex-end;
+    }
+
+    &--justify-content-around {
+        justify-content: space-around;
+    }
+
+    &--justify-content-between {
+        justify-content: space-between;
+    }
+}
+
+.col {
+    flex: 1;
+    padding: $grid-gutter 0 0 $grid-gutter;
+
+    // Modifiers
+    @each $bp in map-keys($breakpoints) {
+        @include respond-from($bp) {
+            @include col-generator($bp, $grid-columns);
+            @include order-generator($bp, $grid-columns);
+        }
+    }
+
+    &--align-self-start {
+        align-self: start;
+    }
+
+    &--align-self-center {
+        align-self: center;
+    }
+
+    &--align-self-end {
+        align-self: flex-end;
+    }
+
+    &--align-self-stretch {
+        align-self: stretch;
+    }
+
+    &--justify-self-start {
+        justify-self: start;
+    }
+
+    &--justify-self-center {
+        justify-self: center;
+    }
+
+    &--justify-self-stretch {
+        justify-self: stretch;
+    }
+
+    &--justify-self-end {
+        justify-self: end;
+    }
+}

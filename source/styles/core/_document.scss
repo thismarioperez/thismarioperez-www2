@@ -1,0 +1,27 @@
+/******************************************************************************
+ * Document
+*******************************************************************************/
+html {
+    display: block;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0 auto;
+    color: $color-black;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $color-brand-black;
+    color: $color-white;
+}
+
+/******************************************************************************
+   * Box Sizing
+  *******************************************************************************/
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
