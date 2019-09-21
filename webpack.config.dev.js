@@ -1,11 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const mode = 'development';
 
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = mode;
 
 module.exports = {
-    mode: 'development',
+    mode,
     target: 'web',
     devtool: 'cheap-module-source-map',
     entry: './source/index',

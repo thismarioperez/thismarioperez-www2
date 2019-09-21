@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import fonts from '../modules/fonts';
+import Header from './common/Header';
+import './App.scss';
 
 const App = () => {
+    useEffect(() => {
+        // Load webfonts
+        fonts.init();
+    }, []);
+
     return (
-        <div>
-            <h1>Hello world</h1>
-        </div>
+        <>
+            <Header />
+            <main></main>
+        </>
     );
 };
 
