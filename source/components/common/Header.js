@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import LogoMark from './LogoMark';
 import './Header.scss';
@@ -9,10 +10,10 @@ const Header = () => {
             <div className='header__inner -exp -bg--dark'>
                 <div className='header__branding -wrap'>
                     <div className='site-logo -fzero'>
-                        <a href='/'>
+                        <Link to='/'>
                             <Logo />
                             <LogoMark />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
