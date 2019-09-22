@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import fonts from '../modules/fonts';
+import fontsController from '../controllers/fontsController';
+import scrollController from '../controllers/scrollController';
 import Header from './common/Header';
 import PageNotFound404 from './PageNotFound';
 import IntroPage from './intro/IntroPage';
 import PortfolioPage from './portfolio/PortfolioPage';
+import './App.scss';
 
 const App = () => {
     useEffect(() => {
         // Load webfonts
-        fonts.init();
+        fontsController.init();
+        // Start document-wide scroll handling
+        scrollController.init();
     }, []);
 
     return (

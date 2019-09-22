@@ -52,4 +52,19 @@
     &__social {
         margin-left: auto;
     }
+
+    // Scroll effects
+    .is-scrolled-down & &__branding {
+        // swap logo with logo-mark once page is scrolled
+        .site-logo {
+            svg:first-child {
+                opacity: 0;
+                transform: translate3d(-100%, 0, 0);
+            }
+            svg:last-child {
+                opacity: 1;
+                transform: translate3d(0, -50%, 0);
+            }
+        }
+    }
 }

@@ -91,8 +91,8 @@ export const getElementsInView = nodes => {
 export const getScrollPos = () => {
     let scrollTop = Math.max(
         window.pageYOffset,
-        dom.html[0].scrollTop,
-        dom.body[0].scrollTop
+        dom.html.scrollTop,
+        dom.body.scrollTop
     );
     return scrollTop;
 };

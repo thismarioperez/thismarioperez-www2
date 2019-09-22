@@ -71,18 +71,18 @@ const init = () => {
 /**
  *
  * @public
- * @member fonts
+ * @member fontsController
  * @memberof App
  * @description Single instance of webfontloader.
  *              Loads app fonts from Typekit CDN with local fallbacks.
  *              Uses a sessionStorage item to load cached fonts.
  *
  */
-const fonts = {
+const fontsController = {
     init
 };
 
 /******************************************************************************
  * Export
  *******************************************************************************/
-export default fonts;
+export default fontsController;
