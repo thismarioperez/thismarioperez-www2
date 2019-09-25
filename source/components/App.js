@@ -4,7 +4,7 @@ import fontsController from '../controllers/fontsController';
 import scrollController from '../controllers/scrollController';
 import Header from './common/Header';
 import PageNotFound404 from './PageNotFound';
-import IntroPage from './intro/IntroPage';
+import Intro from './Intro';
 import PortfolioPage from './portfolio/PortfolioPage';
 import './App.scss';
 
@@ -20,7 +20,7 @@ const App = () => {
         <>
             <Header />
             <Switch>
-                <Route exact path='/' component={IntroPage} />
+                <Route exact path='/' component={Intro} />
                 <Route path='/portfolio' component={PortfolioPage} />
                 <Route component={PageNotFound404}></Route>
             </Switch>
