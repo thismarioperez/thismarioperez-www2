@@ -10,7 +10,7 @@ const Project = ({ id, title, description, liveUrl, projectUrl }) => {
             {typeof liveUrl === 'string' && (
                 <p>
                     <a href={liveUrl} target='_blank' rel='noopener noreferrer'>
-                        See live project
+                        See project
                     </a>
                 </p>
             )}
@@ -21,7 +21,7 @@ const Project = ({ id, title, description, liveUrl, projectUrl }) => {
                         target='_blank'
                         rel='noopener noreferrer'
                     >
-                        See project code
+                        See code
                     </a>
                 </p>
             )}

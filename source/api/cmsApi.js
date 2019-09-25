@@ -5,13 +5,18 @@ const client = contentful.createClient({
     accessToken: 'OtlubS-wiZlTk-QbuFztoy06Q4d7vBCquq9cvkO9yNQ'
 });
 
-export default function getProjects() {
+export const getProjects = () => {
     return client
         .getEntries({
             content_type: 'project'
         })
-        .then(entries => {
-            return entries;
-        })
+        .then(entries => entries)
         .catch();
-}
+};
+
+export const getAdmin = () => {
+    return client
+        .getEntry('ZRMlNZAvbDQlDcjmKxfnV')
+        .then(entry => entry)
+        .catch();
+};
