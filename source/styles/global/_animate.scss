@@ -1,0 +1,11 @@
+/******************************************************************************
+ *Animate
+*******************************************************************************/
+.animate {
+    // setup the hidden state of animateables
+    @include animate-hidden();
+
+    &.is-visible {
+        @include animate-visible();
+    }
+}
