@@ -1,10 +1,19 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import Markdown from 'react-markdown';
 import PropTypes from 'prop-types';
 
 const Project = ({ id, title, description, liveUrl, projectUrl }) => {
+    const [ref, inView] = useInView({
+        threshold: 0.5
+    });
+
     return (
-        <article id={`Project-${id}`} className='project -exp-2'>
+        <article
+            ref={ref}
+            id={`Project-${id}`}
+            className={`project animate${inView ? ' is-visible' : ''} -exp-2`}
+        >
             <h3>{title}</h3>
             <Markdown source={description} />
             {typeof liveUrl === 'string' && (
