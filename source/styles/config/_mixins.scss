@@ -72,7 +72,7 @@
     align-items: center;
     justify-content: flex-start;
 
-    @include respond-from($breakpoint-lg) {
+    @include respond-from('lg') {
         justify-content: center;
     }
 }
@@ -284,12 +284,12 @@
 }
 @mixin wrap-copy {
     @include wrap();
-    @include respond-from($breakpoint-sm) {
+    @include respond-from('sm') {
         padding-left: $nudge;
         padding-right: $nudge;
         max-width: $wrap-copy;
     }
-    @include respond-from($breakpoint-lg) {
+    @include respond-from('lg') {
         width: $wrap-copy;
         margin: 0 auto;
     }
