@@ -34,7 +34,7 @@ const PortfolioPage = () => {
                 </div>
             </section>
             <section className='page__section -wrap -exp-3'>
-                <div className='page__section__inner'>
+                <div className='page__section__inner -wrap-copy'>
                     <h2>Portfolio</h2>
                     <hr />
                     <ProjectList projects={projects} />
