@@ -1,6 +1,9 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const sassRegex = /\.(s[ac]ss)$/;
+const sassModuleRegex = /\.module\.(s[ac]ss)$/;
 const mode = 'development';
 
 process.env.NODE_ENV = mode;
@@ -37,13 +40,43 @@ module.exports = {
                 use: ['babel-loader', 'eslint-loader']
             },
             {
-                test: /\.(s[ac]ss)$/i,
+                test: sassModuleRegex,
                 exclude: /node_modules/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[local]----[hash:base64:5]'
+                            }
+                        }
+                    },
+                    'postcss-loader',
+                    'sass-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: ['./source/styles/config/_index.scss']
+                        }
+                    }
+                ]
+            },
+            // SASS Loader
+            {
+                test: sassRegex,
+                exclude: [/node_modules/, sassModuleRegex],
                 use: [
                     'style-loader',
                     'css-loader',
                     'postcss-loader',
-                    'sass-loader'
+                    'sass-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: ['./source/styles/config/_index.scss']
+                        }
+                    }
                 ]
             }
         ]
