@@ -1,7 +1,7 @@
-@import '../config/index';
-@import '../core/index';
-@import './modifiers';
-@import './grid';
-@import './icons';
-@import './typography';
-@import './animate';
+@import 'reset';
+@import 'document';
+@import 'modifiers';
+@import 'grid';
+@import 'icons';
+@import 'typography';
+@import 'animate';
