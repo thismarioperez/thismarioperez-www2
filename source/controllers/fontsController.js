@@ -65,7 +65,7 @@ const init = () => {
         // update app state to wf-active
     }
     WebFont.load(config);
-    core.log('fonts: initialized');
+    core.log('fontsController: initialized');
 };
 
 /**

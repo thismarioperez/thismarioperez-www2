@@ -3,19 +3,56 @@
  ******************************************************************************/
 require('./polyfill');
 
-/*******************************************************************************
- * Render
- ******************************************************************************/
+/**
+ * @public
+ * @class Application
+ * @classdesc Load the App application Class to handle it ALL.
+ */
 import * as core from './core';
+import fontsController from './controllers/fontsController';
+import scrollController from './controllers/scrollController';
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './components/App';
 import './index.scss';
 
-render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    core.dom.app
-);
+class Application {
+    constructor() {
+        this.core = core;
+        this.fontsController = fontsController;
+        this.scrollController = scrollController;
+
+        this.init();
+    }
+
+    render() {
+        return render(
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>,
+            this.core.dom.app
+        );
+    }
+
+    init() {
+        // Feature detection
+        this.core.detect.init(this);
+        // Load webfonts
+        this.fontsController.init(this);
+        // Start document-wide scroll handling
+        this.scrollController.init(this);
+        // React dom render
+        this.render();
+    }
+}
+
+/*******************************************************************************
+ * Expose
+ ******************************************************************************/
+window.application = new Application();
+
+/*******************************************************************************
+ * Export
+ ******************************************************************************/
+export default window.application;
