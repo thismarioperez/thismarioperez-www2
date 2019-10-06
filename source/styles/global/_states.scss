@@ -1,0 +1,71 @@
+/*******************************************************************************
+ * State
+ ******************************************************************************/
+/*******************************************************************************
+ * No Js
+ ******************************************************************************/
+// .no-js {}
+/*******************************************************************************
+ * Page Ready
+ ******************************************************************************/
+// .is-ready {
+//     .contact-button-wrapper {
+//         @include contact-btn-visible();
+//     }
+// }
+/*******************************************************************************
+   * Scrolled
+   * 
+   * includes scrolled, scrolled-down, and scrolled-up
+   ******************************************************************************/
+.is-scrolled-down {
+    // swap logo with logo-mark once page is scrolled
+    .site-logo {
+        svg:first-child {
+            opacity: 0;
+            transform: translate3d(-100%, 0, 0);
+        }
+        svg:last-child {
+            opacity: 1;
+            transform: translate3d(0, -50%, 0);
+        }
+    }
+}
+/*******************************************************************************
+   * Hoverable
+   ******************************************************************************/
+.is-hoverable {
+    // prevent  hover state while scrolling
+    &:not(.is-scrolling) {
+        // paragraph link hovers
+        p a,
+        blockquote a {
+            @include pa-hover();
+        }
+
+        h1 a,
+        h2 a,
+        h3 a,
+        h4 a,
+        h5 a {
+            @include ha-hover();
+        }
+
+        // // contact button
+        // .contact-button {
+        //     @include contact-btn-hover();
+        // }
+    }
+}
+/*******************************************************************************
+   * Touchable
+   ******************************************************************************/
+.is-touchable {
+    &:not(.is-scrolling) {
+        // paragraph link hovers
+        p a,
+        blockquote a {
+            @include pa-touch-hover();
+        }
+    }
+}
