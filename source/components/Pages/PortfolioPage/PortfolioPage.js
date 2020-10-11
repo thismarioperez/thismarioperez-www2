@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Markdown from 'react-markdown/with-html';
-import { getAdmin, getProjects } from '../../api/cmsApi';
+import { getAdmin, getProjects } from '../../../api/cmsApi';
 import ProjectList from './ProjectList';
 
 const PortfolioPage = () => {
@@ -9,7 +9,7 @@ const PortfolioPage = () => {
 
     useEffect(() => {
         if (Object.keys(admin).length === 0) {
-            getAdmin().then(entry => {
+            getAdmin().then((entry) => {
                 console.log(entry);
                 setAdmin({ ...admin, ...entry });
             });

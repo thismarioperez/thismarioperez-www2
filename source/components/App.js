@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './common/Header';
-import PageNotFound404 from './PageNotFound';
-import Intro from './Intro';
-import PortfolioPage from './portfolio/PortfolioPage';
+import PageNotFound from './Pages/404';
+import IntroPage from './Pages/IntroPage';
+import PortfolioPage from './Pages/PortfolioPage';
 import './App.scss';
 
 const App = () => {
@@ -11,9 +11,9 @@ const App = () => {
         <>
             <Header />
             <Switch>
-                <Route exact path='/' component={Intro} />
+                <Route exact path='/' component={IntroPage} />
                 <Route path='/portfolio' component={PortfolioPage} />
-                <Route component={PageNotFound404}></Route>
+                <Route component={PageNotFound}></Route>
             </Switch>
         </>
     );
