@@ -1,0 +1,39 @@
+@import "../../../styles/config/index";
+/*******************************************************************************
+ * Screen Modules
+ ******************************************************************************/
+// Transition mixins for .screen
+.screen {
+    @include cover(fixed);
+    visibility: visible;
+    z-index: $z-layer-infront;
+
+    &__inner {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+    // CSSTransition classname
+    &-enter {
+        opacity: 0;
+        transform: translate(100%, 0);
+    }
+
+    &-enter-active {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: opacity $duration-two $ease, transform $duration-two $ease;
+    }
+
+    &-exit {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    &-exit-active {
+        opacity: 0;
+        transform: translate(-100%, 0);
+        transition: opacity $duration-two $ease, transform $duration-two $ease;
+    }
+}
