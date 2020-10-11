@@ -9,7 +9,6 @@ require('./polyfill');
  * @classdesc Load the App application Class to handle it ALL.
  */
 import * as core from './core';
-import fontsController from './controllers/fontsController';
 import scrollController from './controllers/scrollController';
 import React from 'react';
 import { render } from 'react-dom';
@@ -20,9 +19,7 @@ import './index.scss';
 class Application {
     constructor() {
         this.core = core;
-        this.fontsController = fontsController;
         this.scrollController = scrollController;
-
         this.init();
     }
 
@@ -39,7 +36,7 @@ class Application {
         // Feature detection
         this.core.detect.init(this);
         // Load webfonts
-        this.fontsController.init(this);
+        this.core.fonts.init(this);
         // Start document-wide scroll handling
         this.scrollController.init(this);
         // React dom render

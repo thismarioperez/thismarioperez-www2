@@ -46,10 +46,10 @@ const handleInActive = (family, fvd) => {
  */
 const config = {
     google: {
-        families: ['Source Code Pro:200,400,700']
+        families: ['Source Code Pro:200,400,700'],
     },
     active: handleActive,
-    fontInactive: handleInActive
+    fontInactive: handleInActive,
 };
 
 /**
@@ -79,7 +79,7 @@ const init = () => {
  *
  */
 const fontsController = {
-    init
+    init,
 };
 
 /******************************************************************************
