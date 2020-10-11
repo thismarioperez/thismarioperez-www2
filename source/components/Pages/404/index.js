@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const PageNotFound = () => {
     return (
-        <section className='-wrap'>
+        <section className="-wrap">
             <h1>404 — Page not found :-(</h1>
         </section>
     );

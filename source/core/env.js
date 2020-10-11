@@ -16,7 +16,7 @@ const env = {
      *
      */
     IS_DEV() {
-        process.env.NODE_ENV !== 'development';
+        process.env.NODE_ENV !== "development";
     },
 
     /**
@@ -28,7 +28,7 @@ const env = {
      *
      */
     IS_PROD() {
-        process.env.NODE_ENV === 'production';
+        process.env.NODE_ENV === "production";
     },
 
     /**
@@ -38,7 +38,7 @@ const env = {
      * @description The applied node environment ref.
      *
      */
-    ENV: process === 'undefined' ? 'production' : process.env.NODE_ENV
+    ENV: process === "undefined" ? "production" : process.env.NODE_ENV,
 };
 
 /**

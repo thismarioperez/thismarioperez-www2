@@ -72,7 +72,7 @@
     align-items: center;
     justify-content: flex-start;
 
-    @include respond-from('lg') {
+    @include respond-from("lg") {
         justify-content: center;
     }
 }
@@ -151,7 +151,7 @@
     transition: color $duration $ease, background-color $duration $ease;
 
     &:after {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         bottom: 0;
@@ -189,7 +189,7 @@
     overflow: hidden;
 
     &:before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
         top: 0;
@@ -202,7 +202,7 @@
     }
 
     &:after {
-        content: '\2192';
+        content: "\2192";
         color: inherit;
         font-weight: normal;
         margin-left: ($nudge / 2);
@@ -284,12 +284,12 @@
 }
 @mixin wrap-copy {
     @include wrap();
-    @include respond-from('sm') {
+    @include respond-from("sm") {
         padding-left: $nudge;
         padding-right: $nudge;
         max-width: $wrap-copy;
     }
-    @include respond-from('lg') {
+    @include respond-from("lg") {
         width: $wrap-copy;
         margin: 0 auto;
     }

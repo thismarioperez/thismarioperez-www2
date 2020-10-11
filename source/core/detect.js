@@ -1,5 +1,5 @@
-import dom from './dom';
-import log from './log';
+import dom from "./dom";
+import log from "./log";
 
 /**
  *
@@ -19,25 +19,25 @@ const detect = {
      *
      */
     init() {
-        this._isTouch = 'ontouchstart' in window || 'DocumentTouch' in window;
+        this._isTouch = "ontouchstart" in window || "DocumentTouch" in window;
         this._isMobile = /Android|BlackBerry|iPhone|iPad|iPod|IEMobile|Opera Mini/gi.test(
-            window.navigator.userAgent
+            window.navigator.userAgent,
         );
 
         // Remove no-js
-        dom.html.classList.remove('no-js');
-        dom.html.classList.add('js');
+        dom.html.classList.remove("no-js");
+        dom.html.classList.add("js");
 
         // Touch support mode
         if (this._isTouch) {
-            dom.html.classList.add('is-touchable');
+            dom.html.classList.add("is-touchable");
 
             // Mouse support mode
         } else {
-            dom.html.classList.add('is-hoverable');
+            dom.html.classList.add("is-hoverable");
         }
 
-        log('detect: initialized');
+        log("detect: initialized");
     },
 
     /**
@@ -78,7 +78,7 @@ const detect = {
      */
     isDevice() {
         return this._isTouch && this._isMobile;
-    }
+    },
 };
 
 /******************************************************************************

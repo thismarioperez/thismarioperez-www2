@@ -34,7 +34,7 @@ const dom = {
      * @description the cached main node
      *
      */
-    app: document.getElementById('app')
+    app: document.getElementById("app"),
 };
 
 /******************************************************************************

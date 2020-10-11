@@ -1,4 +1,4 @@
-import env from './env';
+import env from "./env";
 
 /**
  *
@@ -18,13 +18,13 @@ import env from './env';
  *
  */
 const log = (...args) => {
-    if (env.IS_PROD() || !('console' in window)) {
+    if (env.IS_PROD() || !("console" in window)) {
         return;
     }
 
-    let method = 'log';
+    let method = "log";
 
-    if (typeof console[args[0]] === 'function') {
+    if (typeof console[args[0]] === "function") {
         method = args[0];
         args = args.slice(1, args.length);
     }

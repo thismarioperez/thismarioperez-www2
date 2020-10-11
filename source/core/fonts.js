@@ -1,5 +1,5 @@
-import WebFont from 'webfontloader';
-import * as core from '../core';
+import WebFont from "webfontloader";
+import * as core from "../core";
 
 /**
  *
@@ -20,7 +20,7 @@ const fontLoadingDone = () => {};
  */
 const handleActive = () => {
     // manipulate session storage to detect if font is cached
-    sessionStorage.setItem('tmpl_fonts', 'true');
+    sessionStorage.setItem("tmpl_fonts", "true");
     fontLoadingDone();
 };
 
@@ -32,7 +32,7 @@ const handleActive = () => {
  *
  */
 const handleInActive = (family, fvd) => {
-    core.dom.html.classList.add('wf-active');
+    core.dom.html.classList.add("wf-active");
     core.log(`fonts: failed to load ${family} family. ${fvd}`);
 };
 
@@ -46,7 +46,7 @@ const handleInActive = (family, fvd) => {
  */
 const config = {
     google: {
-        families: ['Source Code Pro:200,400,700'],
+        families: ["Source Code Pro:200,400,700"],
     },
     active: handleActive,
     fontInactive: handleInActive,
@@ -65,7 +65,7 @@ const init = () => {
         // update app state to wf-active
     }
     WebFont.load(config);
-    core.log('fontsController: initialized');
+    core.log("fontsController: initialized");
 };
 
 /**
