@@ -37,8 +37,6 @@ class Application {
         this.core.detect.init(this);
         // Load webfonts
         this.core.fonts.init(this);
-        // Start document-wide scroll handling
-        this.scrollController.init(this);
         // React dom render
         this.render();
     }
