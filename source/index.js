@@ -12,9 +12,10 @@ import * as core from "./core";
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import App from "./components/App";
 import "./index.scss";
-
+import App from "./components/App";
+import "./styles/global/_states.scss";
+import "./styles/global/_modifiers.scss";
 class Application {
     constructor() {
         this.core = core;
