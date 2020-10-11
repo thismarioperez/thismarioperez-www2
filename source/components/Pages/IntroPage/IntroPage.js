@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Screen from "../../common/Screen";
 
 const IntroPage = () => {
+    const [showScreen, setShowScreen] = useState(true);
+    const screenProps = {
+        showScreen,
+        timeout: showScreen ? 0 : 800,
+    };
     return (
-        <section className="intro screen">
-            <div className="screen__inner">
-                <div className="-wrap"></div>
+        <Screen {...screenProps}>
+            <div className="-wrap">
+                <p>This is my content</p>
             </div>
-        </section>
+        </Screen>
     );
 };
 
