@@ -13,7 +13,7 @@ const Screen = (props) => {
             unmountOnExit
         >
             <div className="screen">
-                <div className="screen__inner -bg--dark ">{children}</div>
+                <div className="screen__inner -bg--dark">{children}</div>
             </div>
         </CSSTransition>
     );
@@ -21,6 +21,7 @@ const Screen = (props) => {
 
 Screen.propTypes = {
     children: PropTypes.any,
+    className: PropTypes.string,
     showScreen: PropTypes.bool.isRequired,
     timeout: PropTypes.number.isRequired,
 };

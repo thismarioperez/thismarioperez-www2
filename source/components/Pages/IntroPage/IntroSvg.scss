@@ -1,0 +1,42 @@
+@import "../../../styles/config/index";
+$delay: 50;
+
+.intro-svg {
+    fill: $color-white;
+    width: 100%;
+
+    &__g {
+        transition: opacity $duration $ease;
+        opacity: 0;
+
+        path {
+            transition: opacity $duration $ease, transform $duration $ease;
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+        }
+
+        &--animating {
+            opacity: 1;
+
+            path {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        &--done {
+            opacity: 0;
+
+            path {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+        }
+
+        @for $i from 1 through 14 {
+            path:nth-child(#{$i}) {
+                transition-delay: #{$i * $delay}ms;
+            }
+        }
+    }
+}
