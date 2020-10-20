@@ -6,25 +6,21 @@ $delay: 50;
     width: 100%;
 
     &__g {
-        transition: opacity $duration $ease;
         opacity: 0;
 
         path {
-            transition: opacity $duration $ease, transform $duration $ease;
             opacity: 0;
             transform: translate3d(0, 40px, 0);
+            opacity: 1;
         }
 
-        &--animating {
-            opacity: 1;
-
-            path {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
+        @for $i from 1 through 14 {
+            path:nth-child(#{$i}) {
+                transition-delay: #{$i * $delay}ms;
             }
         }
 
-        &--done {
+        &-enter {
             opacity: 0;
 
             path {
@@ -33,9 +29,52 @@ $delay: 50;
             }
         }
 
-        @for $i from 1 through 14 {
-            path:nth-child(#{$i}) {
-                transition-delay: #{$i * $delay}ms;
+        &-enter-active {
+            opacity: 1;
+            transition: opacity $duration $ease;
+
+            path {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+                transition: opacity $duration $ease, transform $duration $ease;
+            }
+        }
+
+        &-enter-done {
+            opacity: 1;
+
+            path {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        &-exit {
+            opacity: 1;
+
+            path {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        &-exit-active {
+            opacity: 0;
+            transition: opacity $duration $ease;
+
+            path {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+                transition: opacity $duration $ease, transform $duration $ease;
+            }
+        }
+
+        &-exit-done {
+            opacity: 0;
+
+            path {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
             }
         }
     }
